@@ -1,0 +1,57 @@
+﻿@page "/data/customers"
+@using ESFCustomersData.Dtos
+@inject HttpClient Http
+
+@* <SfGrid DataSource="@customers" AllowPaging="true" AllowSorting="true" AllowFiltering="true" AllowGrouping="true">  *@
+@*     <GridEvents OnLoad="LoadHandler" TValue="CustomerDto"></GridEvents> *@
+@*     <GridPageSettings PageSize="10"></GridPageSettings> *@
+@*     <GridColumns> *@
+@*         <GridColumn Field="@(nameof(CustomerDto.CustomerCode))" HeaderText="Customers Code" TextAlign="TextAlign.Left" Width="150"></GridColumn> *@
+@*         <GridColumn HeaderText="Code Details" TextAlign="TextAlign.Center"> *@
+@*             $1$ <GridColumns> #1# *@
+@*             $1$     <GridColumn Field="@(nameof(CustomerDto.))" HeaderText="M Code" TextAlign="TextAlign.Left" Width="150"></GridColumn> #1# *@
+@*             $1$     <GridColumn Field="@(nameof(CustomerDto.mname))" HeaderText="M Name" TextAlign="TextAlign.Left" Width="150"></GridColumn> #1# *@
+@*             $1$ </GridColumns> #1# *@
+@*         </GridColumn> *@
+@*         <GridColumn Field="@(nameof(CustomerDto.Afm) + nameof(CustomerDto.DiscountPriceCloudHosting))" HeaderText="Customers ablaoubla" Width="150"></GridColumn> *@
+@* *@
+@* *@
+@*     </GridColumns> *@
+@* </SfGrid> *@
+
+@if (customers == null)
+{
+    <p>Loading</p>
+}
+else
+{
+    <h3>Customers</h3>
+    <SfGrid DataSource="@customers" ID="Grid" AllowPaging="true" AllowFiltering="true" AllowGrouping="true" AllowSorting="true" Toolbar="@(new List<string>() { "Search" })">
+        <GridColumns>
+            <GridColumn Field=@nameof(CustomerDto.CustomerCode) HeaderText="Order ID" Width="120"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.CustomerName) HeaderText="Customer Name" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.Afm) HeaderText="Α.Φ.Μ." Width="150"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.Phone1) HeaderText="PHONE 1" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.Phone2) HeaderText="PHONE 2" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.SymvasiEtairias) HeaderText="Σύμβαση Εταιρίας" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.SymvasiEpsilon) HeaderText="Σύμβαση Epsilon" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.CloudHosting) HeaderText="Σύμβαση Cloud" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.DateCloudHosting) HeaderText=" Order Date" Format="d" Type="ColumnType.Date" TextAlign="TextAlign.Right" Width="130"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.CloudHosting) HeaderText="Freight" TextAlign="TextAlign.Right" Width="120"></GridColumn>
+        </GridColumns>
+</SfGrid>
+}
+
+@* <SfDataManager Url="api/Customers" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager> *@
+
+
+@code {
+    [Parameter]
+    public List<CustomerDto>? customers { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        customers = await Http.GetFromJsonAsync<List<CustomerDto>>("https://localhost:7161/api/customers");
+    }
+
+}
