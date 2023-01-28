@@ -7,16 +7,12 @@ namespace ESFCustomersData.Data;
 
 public partial class CustomersDbContext : DbContext
 {
-    public CustomersDbContext()
-    {
-    }
-
     public CustomersDbContext(DbContextOptions<CustomersDbContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<Symvolaia> symvolaia { get; set; }
+    public virtual DbSet<Symvolaia>? symvolaia { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) { }
 

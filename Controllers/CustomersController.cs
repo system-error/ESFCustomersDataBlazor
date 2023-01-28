@@ -40,7 +40,7 @@ namespace ESFCustomersData.Controllers
 
                 int count = customersDtos.Value.Count();
 
-                var test = new JsonResult(new { Items = customersDtos.Value, Count = count });
+                //var test = new JsonResult(new { Items = customersDtos.Value, Count = count });
 
                 return Ok(customersDtos.Value);
 
