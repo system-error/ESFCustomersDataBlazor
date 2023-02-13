@@ -8,8 +8,7 @@ namespace ESFCustomersData.Procedures
 {
     public static class Helper
     {
-
-        
+                
         public static ActionResult<IEnumerable<CustomerDto>> ConvertToDto(this IEnumerable<Symvolaia> customers)
         {
             List<Symvolaia> tempListOfCustomers = customers.ToList();
@@ -83,7 +82,7 @@ namespace ESFCustomersData.Procedures
                             ? "," + (tempListOfCustomers[i].LSALEDATE.HasValue ? tempListOfCustomers[i].LSALEDATE.Value.ToString("d"):string.Empty)
                             : (tempListOfCustomers[i].LSALEDATE.HasValue ? tempListOfCustomers[i].LSALEDATE.Value.ToString("d"):string.Empty);
                         cst.PriceSymvasiEtairias += Convert.ToDecimal(tempListOfCustomers[counter].PRICE);
-                        cst.DiscountPriceSymvasiEtairias += Convert.ToDecimal(tempListOfCustomers[counter].DISCPRC);
+                        cst.DiscountPriceSymvasiEtairias += Convert.ToDecimal(tempListOfCustomers[counter].DISCPRC / 100);
                         cst.DurationOfSymvasiEtairias += Convert.ToInt32(tempListOfCustomers[counter].QTY1);
                         cst.DateSymvasiEtairias += !String.IsNullOrEmpty(cst.DateSymvasiEtairias)
                             ? "," + (tempListOfCustomers[i].date01.HasValue ? tempListOfCustomers[i].date01.Value.ToString("d"):string.Empty)
@@ -100,7 +99,7 @@ namespace ESFCustomersData.Procedures
                             ? "," + (tempListOfCustomers[i].LSALEDATE.HasValue ? tempListOfCustomers[i].LSALEDATE.Value.ToString("d"):string.Empty)
                             : (tempListOfCustomers[i].LSALEDATE.HasValue ? tempListOfCustomers[i].LSALEDATE.Value.ToString("d"):string.Empty);
                         cst.PriceSymvasiEpsilon += Convert.ToDecimal(tempListOfCustomers[counter].PRICE);
-                        cst.DiscountPriceSymvasiEpsilon += Convert.ToDecimal(tempListOfCustomers[counter].DISCPRC);
+                        cst.DiscountPriceSymvasiEpsilon += Convert.ToDecimal(tempListOfCustomers[counter].DISCPRC / 100);
                         cst.DurationOfSymvasiEpsilon += Convert.ToInt32(tempListOfCustomers[counter].QTY1);
                         cst.DateSymvasiEpsilon += !String.IsNullOrEmpty(cst.DateSymvasiEpsilon)
                             ? "," + (tempListOfCustomers[i].date01.HasValue ? tempListOfCustomers[i].date01.Value.ToString("d"):string.Empty)
@@ -117,7 +116,7 @@ namespace ESFCustomersData.Procedures
                             ? "," + (tempListOfCustomers[i].LSALEDATE.HasValue ? tempListOfCustomers[i].LSALEDATE.Value.ToString("d"):string.Empty)
                             : (tempListOfCustomers[i].LSALEDATE.HasValue ? tempListOfCustomers[i].LSALEDATE.Value.ToString("d"):string.Empty);
                         cst.PriceCloudHosting += Convert.ToDecimal(tempListOfCustomers[counter].PRICE);
-                        cst.DiscountPriceCloudHosting += Convert.ToDecimal(tempListOfCustomers[counter].DISCPRC);
+                        cst.DiscountPriceCloudHosting += Convert.ToDecimal(tempListOfCustomers[counter].DISCPRC / 100);
                         cst.DurationOfCloudHosting += Convert.ToInt32(tempListOfCustomers[counter].QTY1);
                         cst.DateCloudHosting += !String.IsNullOrEmpty(cst.DateCloudHosting)
                             ? "," + (tempListOfCustomers[i].date01.HasValue ? tempListOfCustomers[i].date01.Value.ToString("d"):string.Empty)
