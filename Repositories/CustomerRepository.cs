@@ -16,6 +16,10 @@ namespace ESFCustomersData.Repositories
 
         public async Task<IEnumerable<Symvolaia>> GetCustomers()
         {
+
+            var test = _context.symvolaia;
+
+
             return await _context.symvolaia.ToListAsync();
         }
     }
