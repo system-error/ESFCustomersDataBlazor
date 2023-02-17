@@ -29,17 +29,21 @@ namespace ESFCustomersData.Procedures
                 if (tempListOfCustomers[i].afm.Equals(tempListOfCustomers[i + 1].afm))
                 {
                     tempSymbaseis += "," + tempListOfCustomers[i + 1].MNAME;
-
-                    if (tempListOfCustomers[i].afm.Equals(tempListOfCustomers[i + 2].afm))
+                    
+                    if (i + 2 < tempListOfCustomers.Count)
                     {
-                        tempSymbaseis += "," + tempListOfCustomers[i + 2].MNAME;
+                        //var testaki = tempListOfCustomers[i + 2].afm;
+                        if (tempListOfCustomers[i].afm.Equals(tempListOfCustomers[i + 2].afm))
+                        {
+                            tempSymbaseis += "," + tempListOfCustomers[i + 2].MNAME;
 
-                        customersDTOS.Add(AddDTOs(tempListOfCustomers, tempSymbaseis, i));
+                            customersDTOS.Add(AddDTOs(tempListOfCustomers, tempSymbaseis, i));
 
-                        i += 3;
-                        continue;
+                            i += 3;
+                            continue;
+                        }
                     }
-
+                    
                     customersDTOS.Add(AddDTOs(tempListOfCustomers, tempSymbaseis, i));
 
                     i += 2;

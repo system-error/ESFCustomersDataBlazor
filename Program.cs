@@ -1,4 +1,3 @@
-using BlazorApp1.Data;
 using ESFCustomersData.Data;
 using ESFCustomersData.Repositories;
 using ESFCustomersData.Repositories.Interfaces;
@@ -18,7 +17,7 @@ namespace BlazorApp1
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
-            builder.Services.AddSingleton<WeatherForecastService>();
+            // builder.Services.AddSingleton<WeatherForecastService>();
             builder.Services.AddDbContext<CustomersDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
             builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
             builder.Services.AddHttpClient();

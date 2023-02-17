@@ -48,7 +48,7 @@ namespace ESFCustomersData.Controllers
             }
             catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from database");
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
             }
         }
     }
