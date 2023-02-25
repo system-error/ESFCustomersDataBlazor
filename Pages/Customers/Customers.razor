@@ -25,62 +25,66 @@
 }
 else
 {*@
+<div style="max-width: 1640px;width: 100%;">
     <h3>Customers</h3>
-<SfGrid DataSource="@customers" ID="Grid" AllowPaging="true" AllowFiltering="true" AllowResizing="true" AllowSorting="true" AllowTextWrap="true" Toolbar="@(new List<string>() {"Search"})">
-    <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Excel"></GridFilterSettings>
-    <GridColumns>
-        <GridColumn Field=@nameof(CustomerDto.CustomerCode) HeaderText="Customer Code" Type="ColumnType.String" Width="120"></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.CustomerName) HeaderText="Customer Name" Type="ColumnType.String" Width="150"></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.Afm) HeaderText="Α.Φ.Μ." Type="ColumnType.String" Width="110" ></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.Phone1) HeaderText="Τηλέφωνο 1" Type="ColumnType.String" Width="140" ></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.Phone2) HeaderText="Τηλέφωνο 2" Type="ColumnType.String" Width="140"></GridColumn>
-        <GridColumn HeaderText="Συμβάσεις" TextAlign="TextAlign.Center">
-            <GridColumns>
-                <GridColumn Field=@nameof(CustomerDto.SymvasiEtairias) HeaderText="Σύμβαση Εταιρίας" Type="ColumnType.String" Width="140"></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.SymvasiEpsilon) HeaderText="Σύμβαση Epsilon" Type="ColumnType.String" Width="130"></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.CloudHosting) HeaderText="Σύμβαση Cloud" Type="ColumnType.String" Width="130"></GridColumn>
-            </GridColumns>
-        </GridColumn>
-        
-        <GridColumn HeaderText="Τελευταίες Συμβάσεις" TextAlign="TextAlign.Center">
-            <GridColumns>
-                <GridColumn Field=@nameof(CustomerDto.LastSaleDateSymvasiEtairias) HeaderText="Τελευταία Σύμβαση Εταιρίας" Format="d" Type="ColumnType.Date" Width="130" ></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.LastSaleDateSymvasiEpsilon) HeaderText="Τελευταία Σύμβαση Epsilon" Format="d" Type="ColumnType.Date" Width="130"></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταία Σύμβαση Cloud" Format="d" Type="ColumnType.Date" Width="130"></GridColumn>
-            </GridColumns>
-        </GridColumn>
-        <GridColumn HeaderText="Τιμές Συμβάσεων" TextAlign="TextAlign.Center">
-            <GridColumns>
-                <GridColumn Field=@nameof(CustomerDto.PriceSymvasiEtairias) HeaderText="Τιμή Σύμβασης Εταιριας" Format="C2" Type="ColumnType.Number" Width="150"></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.PriceSymvasiEpsilon) HeaderText="Τιμή Σύμβασης Epsilon" Format="C2" Type="ColumnType.Number" Width="150" ></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.PriceCloudHosting) HeaderText="Τιμή Σύμβασης Cloud" Format="C2" Type="ColumnType.Number" Width="150" ></GridColumn>
-            </GridColumns>
-        </GridColumn>
-        
-        <GridColumn HeaderText="Εκπτώσεις Συμβάσεων" TextAlign="TextAlign.Center">
-            <GridColumns>
-                <GridColumn Field=@nameof(CustomerDto.DiscountPriceSymvasiEtairias) HeaderText="Εκτπωση Συμβασης Εταιριας" Format="P2" Type="ColumnType.Number" Width="130"></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.DiscountPriceSymvasiEpsilon) HeaderText="Εκτπωση Συμβασης Epsilon" Format="P2" Type="ColumnType.Number" Width="130"></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.DiscountPriceCloudHosting) HeaderText="Εκτπωση Συμβασης Cloud" Format="P2"  Type="ColumnType.Number" Width="130"></GridColumn>
-            </GridColumns>
-        </GridColumn>
-        <GridColumn HeaderText="Διάρκεια Συμβάσεων" TextAlign="TextAlign.Center">
-            <GridColumns>
-                <GridColumn Field=@nameof(CustomerDto.DurationOfSymvasiEtairias) HeaderText="Διάρκεια Συμβολαίου Εταιρίας Σε Μήνες" Type="ColumnType.Number" Width="130"></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.DurationOfSymvasiEpsilon) HeaderText="Διάρκεια Συμβολαίου Epsilon Σε Μήνες" Type="ColumnType.Number" Width="130"></GridColumn>
-                <GridColumn Field=@nameof(CustomerDto.DurationOfCloudHosting) HeaderText="Διάρκεια ΣυμβοΣυμβολαίουλαιου Cloud Σε Μήνες" Type="ColumnType.Number" Width="130"></GridColumn>
-            </GridColumns>
-        </GridColumn>
+    <SfGrid DataSource="@customers" ID="Grid" AllowPaging="true" AllowFiltering="true" AllowResizing="true" AllowSorting="true" AllowTextWrap="true" Toolbar="@(new List<string>() {"Search"})">
+        <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Excel"></GridFilterSettings>
+        <GridPageSettings PageSize="8"></GridPageSettings>
+        <GridColumns>
+            <GridColumn Field=@nameof(CustomerDto.CustomerCode) HeaderText="Customer Code" Type="ColumnType.String" Width="120"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.CustomerName) HeaderText="Customer Name" Type="ColumnType.String" Width="150"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.Afm) HeaderText="Α.Φ.Μ." Type="ColumnType.String" Width="110"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.Phone1) HeaderText="Τηλέφωνο 1" Type="ColumnType.String" Width="140"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.Phone2) HeaderText="Τηλέφωνο 2" Type="ColumnType.String" Width="140"></GridColumn>
+            <GridColumn HeaderText="Συμβάσεις" TextAlign="TextAlign.Center">
+                <GridColumns>
+                    <GridColumn Field=@nameof(CustomerDto.SymvasiEtairias) HeaderText="Σύμβαση Εταιρίας" Type="ColumnType.String" Width="140"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.SymvasiEpsilon) HeaderText="Σύμβαση Epsilon" Type="ColumnType.String" Width="130"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.CloudHosting) HeaderText="Σύμβαση Cloud" Type="ColumnType.String" Width="130"></GridColumn>
+                </GridColumns>
+            </GridColumn>
+
+            <GridColumn HeaderText="Τελευταίες Συμβάσεις" TextAlign="TextAlign.Center">
+                <GridColumns>
+                    <GridColumn Field=@nameof(CustomerDto.LastSaleDateSymvasiEtairias) HeaderText="Τελευταία Σύμβαση Εταιρίας" Format="d" Type="ColumnType.Date" Width="130"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.LastSaleDateSymvasiEpsilon) HeaderText="Τελευταία Σύμβαση Epsilon" Format="d" Type="ColumnType.Date" Width="130"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταία Σύμβαση Cloud" Format="d" Type="ColumnType.Date" Width="130"></GridColumn>
+                </GridColumns>
+            </GridColumn>
+            <GridColumn HeaderText="Τιμές Συμβάσεων" TextAlign="TextAlign.Center">
+                <GridColumns>
+                    <GridColumn Field=@nameof(CustomerDto.PriceSymvasiEtairias) HeaderText="Τιμή Σύμβασης Εταιριας" Format="C2" Type="ColumnType.Number" Width="150"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.PriceSymvasiEpsilon) HeaderText="Τιμή Σύμβασης Epsilon" Format="C2" Type="ColumnType.Number" Width="150"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.PriceCloudHosting) HeaderText="Τιμή Σύμβασης Cloud" Format="C2" Type="ColumnType.Number" Width="150"></GridColumn>
+                </GridColumns>
+            </GridColumn>
+
+            <GridColumn HeaderText="Εκπτώσεις Συμβάσεων" TextAlign="TextAlign.Center">
+                <GridColumns>
+                    <GridColumn Field=@nameof(CustomerDto.DiscountPriceSymvasiEtairias) HeaderText="Εκτπωση Συμβασης Εταιριας" Format="P2" Type="ColumnType.Number" Width="130"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.DiscountPriceSymvasiEpsilon) HeaderText="Εκτπωση Συμβασης Epsilon" Format="P2" Type="ColumnType.Number" Width="130"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.DiscountPriceCloudHosting) HeaderText="Εκτπωση Συμβασης Cloud" Format="P2" Type="ColumnType.Number" Width="130"></GridColumn>
+                </GridColumns>
+            </GridColumn>
+            <GridColumn HeaderText="Διάρκεια Συμβάσεων" TextAlign="TextAlign.Center">
+                <GridColumns>
+                    <GridColumn Field=@nameof(CustomerDto.DurationOfSymvasiEtairias) HeaderText="Διάρκεια Συμβολαίου Εταιρίας Σε Μήνες" Type="ColumnType.Number" Width="130"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.DurationOfSymvasiEpsilon) HeaderText="Διάρκεια Συμβολαίου Epsilon Σε Μήνες" Type="ColumnType.Number" Width="130"></GridColumn>
+                    <GridColumn Field=@nameof(CustomerDto.DurationOfCloudHosting) HeaderText="Διάρκεια ΣυμβοΣυμβολαίουλαιου Cloud Σε Μήνες" Type="ColumnType.Number" Width="130"></GridColumn>
+                </GridColumns>
+            </GridColumn>
 
 
-        @* <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταια Συμβαση Cloud" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταια Συμβαση Cloud" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταια Συμβαση Cloud" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταια Συμβαση Cloud" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.DateCloudHosting) HeaderText="Order Date" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
-        <GridColumn Field=@nameof(CustomerDto.CloudHosting) HeaderText="Freight"  Width="120"></GridColumn>*@
-    </GridColumns>
-</SfGrid>
+            @* <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταια Συμβαση Cloud" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταια Συμβαση Cloud" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταια Συμβαση Cloud" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.LastSaleDateCloudHosting) HeaderText="Τελευταια Συμβαση Cloud" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.DateCloudHosting) HeaderText="Order Date" Format="d" Type="ColumnType.Date"  Width="130"></GridColumn>
+            <GridColumn Field=@nameof(CustomerDto.CloudHosting) HeaderText="Freight"  Width="120"></GridColumn>*@
+        </GridColumns>
+    </SfGrid>
+</div>
+    
 @*}*@
 
 @* <SfDataManager Url="api/Customers" Adaptor="Adaptors.WebApiAdaptor"></SfDataManager> *@
@@ -92,7 +96,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        customers = await Http.GetFromJsonAsync<List<CustomerDto>>("https://localhost:7161/api/customers");
+        customers = await Http.GetFromJsonAsync<List<CustomerDto>>("http://esf.local:7162/api/customers");
     }
 
 }
